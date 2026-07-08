@@ -1,8 +1,8 @@
-const User = requrie('../models/user');
+const User = require('../models/user');
 
 async function handleUserSignIn(req, res){
     const{name,email, password}=req.body;
-    await create.User({
+    await User.create({
         name,
         email,
         password,

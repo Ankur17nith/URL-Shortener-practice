@@ -1,4 +1,5 @@
 require("dotenv").config({ path: "./server/.env" });
+const cookieParser = require('cookie-parser')
 const {checkForAuthentiication}=require('./middlewares/auth')
 const express = require("express");
 const app = express();
@@ -15,7 +16,6 @@ mongoose.connect(process.env.MONGO_URL)
 app.use(express.json());
 app.use(express.urlencoded({extended: false}))
 app.use(cookieParser())
-app.use(checkForAuthentication)
 
 app.use('/api/auth', userRouter);
 

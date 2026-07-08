@@ -2,13 +2,11 @@ require("dotenv").config({ path: "./server/.env" });
 const jwt = require('jsonwebtoken');
 
 function setUser(user){
-    const payload={
-        ...user
-    };
     return jwt.sign({
         _id: user._id,
         email: user.email,
-    }, secret)
+    }, process.env.JWT_SECRET,
+    { expiresIn: '30d' })
 }
 
 function getUser(token){

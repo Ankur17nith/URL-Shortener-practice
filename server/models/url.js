@@ -14,7 +14,6 @@ const UrlSchema= new mongoose.Schema({
     userId:{
         type: mongoose.Schema.Types.ObjectId,
         ref: "user",
-        type:String,
     },
     clicks:{
         type:Number,
@@ -26,9 +25,9 @@ const UrlSchema= new mongoose.Schema({
     },
     clickHistory:[
         {
-            timestamps:{
+            timestamp:{
                 type: Date,
-                default: Date.now(),
+                default: Date.now,
             },
             country:{
                 type: String,

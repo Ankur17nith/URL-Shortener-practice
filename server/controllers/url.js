@@ -112,12 +112,12 @@ async function handleGetAnalytics(req, res) {
         const userId = req.user._id;
 
         // Find URL belonging to the logged-in user
-        const url = await Url.findOne({
+        const foundUrl = await Url.findOne({
             shortId,
             userId,
         });
 
-        if (!url) {
+        if (!foundUrl) {
             return res.status(404).json({
                 message: "URL not found",
             });
@@ -162,5 +162,5 @@ module.exports = { handleGenerateShortUrl,
     handleReturnAllUrl,
     handleDeleteUrl,
     handleRedirectUrl,
-    handleUrlAnalytics
+    handleGetAnalytics
 };
